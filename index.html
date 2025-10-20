@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chúc Mừng 20/10 - Cô Như (Slide Có Nút)</title>
+    <style>
+        /* CSS Styling - Đã tối ưu cho không gian lớn và thêm nút điều hướng */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f7d9e7, #c9e9ff); /* Nền màu hồng và xanh nhẹ nhàng */
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            overflow: hidden; /* Quan trọng để ẩn phần slide chưa hiển thị */
+        }
+
+        .presentation-box {
+            background-color: #fff;
+            padding: 30px 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            width: 90vw;
+            max-width: 650px;
+            height: 480px; /* Tăng chiều cao đáng kể để tránh đè chữ */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        h1 {
+            color: #d94879;
+            font-size: 1.8em; 
+            margin-bottom: 5px;
+            line-height: 1.2;
+            text-align: center;
+        }
+
+        h2 {
+            color: #5d5d5d;
+            font-size: 1.0em;
+            margin-top: 0;
+            margin-bottom: 30px; /* Tăng khoảng cách dưới h2 */
+            border-bottom: 2px solid #ffacbd;
+            padding-bottom: 5px;
+            text-align: center;
+        }
+
+        /* Container chứa các slide */
+        .slides-container {
+            display: flex;
+            width: 300%;
+            height: 100%;
+            transition: transform 0.6s ease-in-out; 
+            position: absolute;
+            top: 110px; /* Điều chỉnh vị trí xuống dưới tiêu đề */
+            left: 0;
+        }
+
+        .slide {
+            width: calc(100% / 3);
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .wish-text {
+            font-size: 1.4em; /* Cỡ chữ lời chúc rõ ràng hơn */
+            font-weight: 500;
+            color: #4a4a4a;
+            line-height: 1.6;
+            animation: textFadeIn 1s ease-out;
+        }
+
+        @keyframes textFadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .emoji {
+            font-size: 3.5em; /* Emoji lớn hơn */
+            margin-top: 25px;
+            display: block;
+            animation: bounce 1s infinite alternate;
+        }
+
+        @keyframes bounce {
+            from { transform: translateY(0); }
+            to { transform: translateY(-5px); }
+        }
+
+        /* Thêm nút điều hướng */
+        .nav-buttons {
+            position: absolute;
+            bottom: 30px;
+            width: 90%;
+            max-width: 400px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .nav-btn {
+            background-color: #d94879;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s, transform 0.1s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-btn:hover {
+            background-color: #c03960;
+            transform: translateY(-2px);
+        }
+
+        .nav-btn:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+
+        .developer-signature {
+            position: absolute;
+            bottom: 10px;
+            right: 20px;
+            font-style: italic;
+            color: #888;
+            font-size: 0.8em;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="presentation-box">
+        <h1>Chúc Mừng Ngày Phụ Nữ Việt Nam 20/10!</h1>
+        <h2>Trần Thắng Developer chúc cô Như !</h2>
+
+        <div class="slides-container" id="slides-container">
+            <div class="slide">
+                <p class="wish-text">
+                    Chúc cô Như **20/10 thật vui vẻ**, luôn xinh đẹp, tràn đầy năng lượng và hạnh phúc bên học trò của mình!
+                </p>
+                <span class="emoji">💐</span>
+            </div>
+
+            <div class="slide">
+                <p class="wish-text">
+                    Chúc cô Như ngày **20/10 thật nhiều niềm vui**, luôn rạng rỡ như chính nụ cười của cô!
+                </p>
+                <span class="emoji">🌷</span>
+            </div>
+
+            <div class="slide">
+                <p class="wish-text">
+                    **20/10 vui vẻ nhé cô Như!** Chúc cô mãi tươi trẻ, dạy hay và được học trò yêu mến thật nhiều!
+                </p>
+                <span class="emoji">❤️</span>
+            </div>
+        </div>
+
+        <div class="nav-buttons">
+            <button class="nav-btn" id="prevBtn" disabled>❮ Quay Lại</button>
+            <button class="nav-btn" id="nextBtn">Tiếp Theo ❯</button>
+        </div>
+
+        <p class="developer-signature">Code by: Trần Thắng Developer 👨‍💻</p>
+    </div>
+
+    <script>
+        // JavaScript cho hiệu ứng Slide với nút điều hướng
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('slides-container');
+            const slides = document.querySelectorAll('.slide');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+
+            let currentIndex = 0;
+            const totalSlides = slides.length;
+
+            function updateSlide() {
+                // Tính toán vị trí trượt
+                const offset = -currentIndex * (100 / totalSlides); 
+                container.style.transform = `translateX(${offset}%)`;
+
+                // Cập nhật trạng thái nút
+                prevBtn.disabled = currentIndex === 0;
+                nextBtn.disabled = currentIndex === totalSlides - 1;
+
+                // Reset animation chữ để hiệu ứng textFadeIn chạy lại
+                slides.forEach(slide => {
+                    const wishText = slide.querySelector('.wish-text');
+                    if (wishText) {
+                        wishText.style.animation = 'none';
+                        void wishText.offsetWidth; /* Trick để restart animation */
+                        wishText.style.animation = null;
+                    }
+                });
+            }
+
+            // Xử lý nút Tiếp Theo
+            nextBtn.addEventListener('click', () => {
+                if (currentIndex < totalSlides - 1) {
+                    currentIndex++;
+                    updateSlide();
+                }
+            });
+
+            // Xử lý nút Quay Lại
+            prevBtn.addEventListener('click', () => {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    updateSlide();
+                }
+            });
+
+            // Hiển thị slide đầu tiên khi load
+            updateSlide();
+        });
+    </script>
+
+</body>
+</html>
+
