@@ -5,10 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chúc Mừng 20/10 - Cô Như (Slide Có Nút)</title>
     <style>
-        /* CSS Styling - tối ưu cho không gian lớn và thêm nút điều hướng */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #f7d9e7, #c9e9ff); /* Nền màu hồng và xanh nhẹ nhàng */
+            background: linear-gradient(135deg, #f7d9e7, #c9e9ff); 
             color: #333;
             display: flex;
             flex-direction: column;
@@ -16,7 +15,7 @@
             justify-content: center;
             min-height: 100vh;
             margin: 0;
-            overflow: hidden; /* Quan trọng để ẩn phần slide chưa hiển thị */
+            overflow: hidden; 
         }
 
         .presentation-box {
@@ -26,7 +25,7 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             width: 90vw;
             max-width: 650px;
-            height: 480px; /* Tăng chiều cao đáng kể để tránh đè chữ */
+            height: 480px; 
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -46,20 +45,19 @@
             color: #5d5d5d;
             font-size: 1.0em;
             margin-top: 0;
-            margin-bottom: 30px; /* Tăng khoảng cách dưới h2 */
+            margin-bottom: 30px; 
             border-bottom: 2px solid #ffacbd;
             padding-bottom: 5px;
             text-align: center;
         }
 
-        /* Container chứa các slide */
         .slides-container {
             display: flex;
             width: 300%;
             height: 100%;
             transition: transform 0.6s ease-in-out; 
             position: absolute;
-            top: 110px; /* Điều chỉnh vị trí xuống dưới tiêu đề */
+            top: 110px; 
             left: 0;
         }
 
@@ -75,7 +73,7 @@
         }
 
         .wish-text {
-            font-size: 1.4em; /* Cỡ chữ lời chúc rõ ràng hơn */
+            font-size: 1.4em; 
             font-weight: 500;
             color: #4a4a4a;
             line-height: 1.6;
@@ -88,7 +86,7 @@
         }
 
         .emoji {
-            font-size: 3.5em; /* Emoji lớn hơn */
+            font-size: 3.5em; 
             margin-top: 25px;
             display: block;
             animation: bounce 1s infinite alternate;
@@ -99,7 +97,6 @@
             to { transform: translateY(-5px); }
         }
 
-        /* Thêm nút điều hướng */
         .nav-buttons {
             position: absolute;
             bottom: 30px;
@@ -180,7 +177,6 @@
     </div>
 
     <script>
-        // JavaScript cho hiệu ứng Slide với nút điều hướng
         document.addEventListener('DOMContentLoaded', () => {
             const container = document.getElementById('slides-container');
             const slides = document.querySelectorAll('.slide');
@@ -191,26 +187,22 @@
             const totalSlides = slides.length;
 
             function updateSlide() {
-                // Tính toán vị trí trượt
                 const offset = -currentIndex * (100 / totalSlides); 
                 container.style.transform = `translateX(${offset}%)`;
 
-                // Cập nhật trạng thái nút
                 prevBtn.disabled = currentIndex === 0;
                 nextBtn.disabled = currentIndex === totalSlides - 1;
 
-                // Reset animation chữ để hiệu ứng textFadeIn chạy lại
                 slides.forEach(slide => {
                     const wishText = slide.querySelector('.wish-text');
                     if (wishText) {
                         wishText.style.animation = 'none';
-                        void wishText.offsetWidth; /* Trick để restart animation */
+                        void wishText.offsetWidth; 
                         wishText.style.animation = null;
                     }
                 });
             }
 
-            // Xử lý nút Tiếp Theo
             nextBtn.addEventListener('click', () => {
                 if (currentIndex < totalSlides - 1) {
                     currentIndex++;
@@ -218,7 +210,6 @@
                 }
             });
 
-            // Xử lý nút Quay Lại
             prevBtn.addEventListener('click', () => {
                 if (currentIndex > 0) {
                     currentIndex--;
@@ -226,7 +217,6 @@
                 }
             });
 
-            // Hiển thị slide đầu tiên khi load
             updateSlide();
         });
     </script>
